@@ -1,4 +1,4 @@
-- name: Deploy MySQL 5.6
+- name: Deploy MySQL 8.0
   hosts: all
   become: True
   gather_facts: True
