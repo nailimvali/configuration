@@ -15,5 +15,5 @@
     state: absent 
     purge: yes
   with_items:
-    - mysql-server-5.6
+    - mysql-server-8.0
     - mysql-server
