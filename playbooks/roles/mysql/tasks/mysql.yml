@@ -61,7 +61,7 @@
     id: "{{ MYSQL_APT_KEY }}"
   when: ansible_distribution_release == 'focal'
 
-- name: add the mysql-5.7 repo to the sources list
+- name: add the mysql-8.0 repo to the sources list
   apt_repository:
     repo: "{{ MYSQL_REPO }}"
     state: present
@@ -69,23 +69,23 @@
 
 # Installing mysql-5.7-client, mysql-5.7-community-server
 # and mysql-5.7-server in separate tasks to resolve dependencies
-- name: install mysql-5.7-client
+- name: install mysql-8.0-client
   apt:
-    name: "{{ mysql_client_5_7_pkg }}"
+    name: "{{ mysql_client_8_0_pkg }}"
     state: present
     update_cache: yes
   when: ansible_distribution_release == 'focal' and not mysql_8_0_install
 
-- name: install mysql-5.7-community-server
+- name: install mysql-8.0-community-server
   apt:
-    name: "{{ mysql_community_server_5_7_pkg }}"
+    name: "{{ mysql_community_server_8_0_pkg }}"
     state: present
     update_cache: yes
   when: ansible_distribution_release == 'focal' and not mysql_8_0_install
 
-- name: install mysql-5.7-server
+- name: install mysql-8.0-server
   apt:
-    name: "{{ mysql_server_5_7_pkg }}"
+    name: "{{ mysql_server_8_0_pkg }}"
     state: present
     update_cache: yes
   when: ansible_distribution_release == 'focal' and not mysql_8_0_install
